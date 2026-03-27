@@ -57,11 +57,10 @@ INSTALLED_APPS = [
     # Third-party apps
     "rest_framework",
     "corsheaders",
-    "django_extensions",  # remove this in production, it's destructive and used for debugging only
+    "django_extensions",
     "rest_framework_simplejwt.token_blacklist",
     # Local apps
-    "apps.user_management",
-    "apps.task_management",
+    "chat",
 
 ]
 
@@ -76,7 +75,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'UserManagementService.urls'
+ROOT_URLCONF = 'gemini_ai_chatbot_backend.urls'
 
 TEMPLATES = [
     {
@@ -94,7 +93,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'UserManagementService.wsgi.application'
+WSGI_APPLICATION = 'gemini_ai_chatbot_backend.wsgi.application'
 
 
 # Database
@@ -170,7 +169,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-AUTH_USER_MODEL = 'user_management.User'
+# AUTH_USER_MODEL = 'user_management.User'
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
